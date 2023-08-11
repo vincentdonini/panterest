@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    PANTEREST - {{pin.title}}
+{% endblock %}
+
+{% block body %}
+    <article>
+        <h1>{{pin.title}}</h1>
+        <p>
+           {{ pin.description }}
+        </p>
+        <a href="{{ path('app_home') }}">
+            Go back
+        </a>
+    </article>
+{% endblock %}

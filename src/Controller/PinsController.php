@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Pin;
 use App\Repository\PinRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,6 +21,19 @@ class PinsController extends AbstractController
 
         return $this->render('pins/index.html.twig', [
             'pins' => $pins,
+        ]);
+    }
+
+    /**
+     * @Route("/pins/{id}", name="app_pins_details")
+     */
+    public function details(
+        PinRepository $pinRepository,
+        Pin $pin
+    ): Response
+    {
+        return $this->render('pins/details.html.twig', [
+            'pin' => $pin,
         ]);
     }
 }
