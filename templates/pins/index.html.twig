@@ -19,7 +19,8 @@
                     </a>
                 </h2>
                 <p>
-                   {{ pin.description }}
+                   {{ pin.description }}<br/>
+                   {{ pin.createdAt|date('d-m-Y H:i:s') }}
                 </p>
             </article>
         {% endfor %}
