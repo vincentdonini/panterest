@@ -10,6 +10,10 @@
         <p>
            {{ pin.description }}
         </p>
+        <a href="{{ path('app_pins_edit', {'id': pin.id}) }}">
+            Edit pin
+        </a>
+        |
         <a href="{{ path('app_home') }}">
             Go back
         </a>
