@@ -12,9 +12,6 @@
             Go back
         </a>
 
-        {{ form_start(form) }}
-            {{ form_widget(form) }}
-            <input type="submit" value="Edit a pin" formnovalidate/>
-        {{ form_end(form) }}
+        {{ include('pins/_form.html.twig', {'sumitButtontext': 'Update pin #' ~ pin.id}) }}
     </article>
 {% endblock %}
