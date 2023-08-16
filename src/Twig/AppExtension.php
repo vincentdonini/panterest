@@ -18,11 +18,11 @@ class AppExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('plurialize', [$this, 'plurialize']),
+            new TwigFunction('pluralize', [$this, 'pluralize']),
         ];
     }
 
-    public function plurialize(int $count, string $singular, ?string $plurial = null)
+    public function pluralize(int $count, string $singular, ?string $plurial = null)
     {
         $_plurial = $plurial ?? $singular . "s";
         $str = ($count === 1) ? $singular : $_plurial;

@@ -11,7 +11,7 @@
     {% if pins is empty %}
         There are no pins...
     {% else %}
-        There are {{ plurialize(pins|length, 'Pin') }} in total
+        There are {{ pluralize(pins|length, 'Pin') }} in total
         <hr />
         {% for pin in pins %}
             <article>
