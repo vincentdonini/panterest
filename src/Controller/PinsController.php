@@ -51,6 +51,7 @@ class PinsController extends AbstractController
             $this->manager->persist($pin);
             $this->manager->flush();
 
+            $this->addFlash('success', 'Pin successfully created !');
             return $this->redirectToRoute('app_home');
         }
 
@@ -87,6 +88,7 @@ class PinsController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $this->manager->flush();
 
+            $this->addFlash('success', 'Pin successfully updated !');
             return $this->redirectToRoute('app_home');
         }
 
@@ -108,6 +110,8 @@ class PinsController extends AbstractController
         if($this->isCsrfTokenValid('pin_deletion_' . $pin->getId(), $request->get('_csrf_token'))){
             $this->manager->remove($pin);
             $this->manager->flush();
+
+            $this->addFlash('success', 'Pin successfully deleted !');
         }
 
         return $this->redirectToRoute('app_home');
