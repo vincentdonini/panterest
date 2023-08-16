@@ -10,12 +10,21 @@
         <p>
            {{ pin.description }}
         </p>
-        <a href="{{ path('app_pins_edit', {'id': pin.id}) }}">
-            Edit pin
-        </a>
-        |
-        <a href="{{ path('app_home') }}">
-            Go back
-        </a>
+
+        <div class="d-grid gap-2 d-md-block">
+            <a href="{{ path('app_pins_edit', {'id': pin.id}) }}" class="btn btn-primary">
+                Edit pin
+            </a>
+            <div class="d-inline-block">
+                <form action="{{ path('app_pins_delete', {'id': pin.id}) }}" method="POST">
+                    <input type="hidden" name="_method" value="DELETE" />
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('pin_deletion_' ~ pin.id) }}" />
+                    <input type="submit" value="Delete"  class="btn btn-primary"/>
+                </form>
+            </div>
+            <a href="{{ path('app_home') }}" class="btn btn-primary">
+                Go back
+            </a>
+        </div>
     </article>
 {% endblock %}
