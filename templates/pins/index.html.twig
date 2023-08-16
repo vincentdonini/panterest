@@ -5,11 +5,13 @@
 {% endblock %}
 
 {% block body %}
-    <h1>All pins</h1>
+    <h1>
+        All pins
+    </h1>
     {% if pins is empty %}
-        Il n'y a pas de pins...
+        There are no pins...
     {% else %}
-        Il y a {{ plurialize(pins|length, 'Pin') }} au total
+        There are {{ plurialize(pins|length, 'Pin') }} in total
         <hr />
         {% for pin in pins %}
             <article>

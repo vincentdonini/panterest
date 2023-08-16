@@ -1,0 +1,27 @@
+<header class="fixed-top">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="{{ path('app_home') }}">
+        Panterest
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-sm-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('app_pins_create') }}">New pin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {{ include('layouts/partials/_flash_messages.html.twig') }}
+</header>
