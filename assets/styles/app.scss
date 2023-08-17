@@ -1,13 +1,33 @@
 @import "~bootstrap";
 
-.vich-image{
-  .form-check {
-    @extend .mt-3;
-  }
-  img {
-    @extend .mb-2;
+.vich-image {
+    .form-check {
+        @extend .mt-3;
+    }
+
+    img {
+        @extend .mb-2;
+        @extend .rounded;
+        @extend .shadow-sm;
+        @extend .img-thumbnail;
+    }
+}
+
+
+.pin {
+    @extend .bg-white;
     @extend .rounded;
-    @extend .shadow;
-    @extend .img-thumbnail;
-  }
+    @extend .shadow-sm;
+
+    .pin-image{
+        @extend .rounded-top;
+        @extend .overflow-hidden;
+        img {
+            transition: transform 0.3s ease-out;
+            &:hover {
+                transform: scale(1.075);
+            }
+        }
+    }
+
 }

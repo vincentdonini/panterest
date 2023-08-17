@@ -5,26 +5,37 @@
 {% endblock %}
 
 {% block body %}
-    <h1>
-        All pins
-    </h1>
     {% if pins is empty %}
-        There are no pins...
+        <h1 class="text-center">
+            No pins yet. <a href="{{ path('app_pins_create') }}">Be the first !</a>
+        </h1>
     {% else %}
-        There are {{ pluralize(pins|length, 'Pin') }} in total
+        <h1>
+            There are {{ pluralize(pins|length, 'Pin') }} in total
+        </h1>
         <hr />
-        {% for pin in pins %}
-            <article>
-                <h2>
-                    <a href="{{ path('app_pins_details', {id: pin.id}) }}">
-                        {{ pin.title }}
-                    </a>
-                </h2>
-                <p>
-                   {{ pin.description | u.truncate(10, '...', false) }}<br/>
-                   Submitted {{ pin.createdAt|ago }}
-                </p>
-            </article>
-        {% endfor %}
+        <div class="container gx-0">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                {% for pin in pins %}
+                    <div class="col">
+                        <article class="pin">
+                            <div class="pin-image">
+                                <a href="{{ path('app_pins_details', {id: pin.id}) }}">
+                                    <img src="{{ (pin.imageName ? vich_uploader_asset(pin) : asset('build/images/placeholder.jpg')) | imagine_filter('square_thumbnail_medium') }}" alt="{{ pin.title }}" class="rounded-top w-100"/>
+                                </a>
+                            </div>
+                            <div class="p-4">
+                                <h2>
+                                    <a href="{{ path('app_pins_details', {id: pin.id}) }}" class="text-decoration-none">
+                                        {{ pin.title }}
+                                    </a>
+                                </h2>
+                               <small class="text-muted">Submitted <time datetime="{{ pin.createdAt|date('Y-m-d H:i:s') }}">{{ pin.createdAt|ago }}</time></small>
+                            </div>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     {% endif %}
 {% endblock %}
