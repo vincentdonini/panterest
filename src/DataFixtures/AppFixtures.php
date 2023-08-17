@@ -28,7 +28,8 @@ class AppFixtures extends Fixture
             $pin = new Pin();
             $pin
                 ->setTitle($this->faker->unique()->word())
-                ->setDescription($this->faker->text(300));
+                ->setDescription($this->faker->text(300))
+                ->setImageName(null);
             $pins[] = $pin;
             $manager->persist($pin);
         }
