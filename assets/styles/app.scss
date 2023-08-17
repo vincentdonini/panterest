@@ -1,8 +1,14 @@
 @import "~bootstrap";
 
+html,
+body{
+    @extend .h-100;
+}
+
 #main-container{
     @extend .container;
-    padding-top: 8rem;
+    @extend .flex-shrink-0;
+    padding-top: 4rem;
     padding-bottom: 4rem;
 }
 

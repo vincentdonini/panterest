@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app.request.locale }}" class="h-100">
+<html lang="{{ app.request.locale }}">
     <head>
         <meta charset="UTF-8">
         <title>
@@ -12,16 +12,15 @@
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
-    <body class="d-flex flex-column h-100">
-        {{ include('layouts/partials/_nav.html.twig') }}
-
-        <main class="flex-shrink-0">
-          <div id="main-container">
-            {% block body %}{% endblock %}
-          </div>
-        </main>
-
-        {{ include('layouts/partials/_footer.html.twig') }}
+    <body>
+        <div class="d-flex flex-column h-100 overflow-scroll">
+            {{ include('layouts/partials/_flash_messages.html.twig') }}
+            {{ include('layouts/partials/_nav.html.twig') }}
+            <main id="main-container">
+                {% block body %}{% endblock %}
+            </main>
+            {{ include('layouts/partials/_footer.html.twig') }}
+        </div>
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
