@@ -1,5 +1,11 @@
 @import "~bootstrap";
 
+#main-container{
+    @extend .container;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+}
+
 .vich-image {
     .form-check {
         @extend .mt-3;
