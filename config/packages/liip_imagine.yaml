@@ -8,13 +8,11 @@ liip_imagine:
         square_thumbnail_medium:
             filters:
                 thumbnail:
-                    size: [ 400, 400 ]
+                    size: [400, 400]
                     mode: outbound
-                    allow_upscale : true
 
         square_thumbnail_small:
             filters:
                 thumbnail:
                     size: [ 200, 200 ]
                     mode: outbound
-                    allow_upscale : true
