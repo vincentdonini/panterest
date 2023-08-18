@@ -3,17 +3,10 @@
 namespace App\Twig;
 
 use Twig\Extension\AbstractExtension;
-use Twig\TwigFilter;
 use Twig\TwigFunction;
 
 class AppExtension extends AbstractExtension
 {
-    public function getFilters(): array
-    {
-        return [
-            new TwigFilter('filter_name', [$this, 'doSomething']),
-        ];
-    }
 
     public function getFunctions(): array
     {
@@ -22,7 +15,7 @@ class AppExtension extends AbstractExtension
         ];
     }
 
-    public function pluralize(int $count, string $singular, ?string $plurial = null)
+    public function pluralize(int $count, string $singular, ?string $plurial = null): string
     {
         $_plurial = $plurial ?? $singular . "s";
         $str = ($count === 1) ? $singular : $_plurial;
