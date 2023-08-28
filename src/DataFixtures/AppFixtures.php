@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Pin;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
@@ -26,6 +27,29 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $client = new Client();
+
+        // Users
+        $admin = new User();
+        $admin
+            ->setFirstName('Vincent')
+            ->setLastName('DONINI')
+            ->SetEmail('admin@woder.fr')
+            ->setRoles(['ROLE_USER', 'ROLE_ADMIN'])
+            ->setPlainPassword('password');
+
+        $manager->persist($admin);
+
+        for ($i = 0; $i < 10; $i++) {
+            $user = new User();
+            $user
+                ->setFirstName(mt_rand(0, 1) === 1 ? $this->faker->firstName() : '')
+                ->setLastName(mt_rand(0, 1) === 1 ? $this->faker->lastName() : '')
+                ->setEmail($this->faker->unique()->email())
+                ->setRoles(['ROLE_USER'])
+                ->setPlainPassword('password');
+
+            $manager->persist($user);
+        }
 
         // Pins
         for ($i = 1; $i <= 20; $i++) {
