@@ -17,7 +17,7 @@
                         <h1 class="mb-0">{{pin.title}}</h1>
                         <small class="text-muted">Submitted <time datetime="{{ pin.createdAt|date('Y-m-d H:i:s') }}">{{ pin.createdAt|ago }}</time> by {{ pin.user.fullName }}</small>
                     </div>
-                    <p>
+                    <p class="text-break">
                        {{ pin.description }}<br/>
                     </p>
                     <hr/>
