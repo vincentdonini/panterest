@@ -30,7 +30,7 @@
                                         {{ pin.title }}
                                     </a>
                                 </h2>
-                               <small class="text-muted">Submitted <time datetime="{{ pin.createdAt|date('Y-m-d H:i:s') }}">{{ pin.createdAt|ago }}</time></small>
+                               <small class="text-muted">Submitted <time datetime="{{ pin.createdAt|date('Y-m-d H:i:s') }}">{{ pin.createdAt|ago }}</time> by {{ pin.user.fullName }}</small>
                             </div>
                         </article>
                     </div>
