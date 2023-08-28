@@ -1,0 +1,51 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}
+    PANTEREST - Quest
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12 mx-auto">
+            <article class="pin">
+                <div class="p-4">
+{#                    <pre>#}
+{#                        {{ dump(monsters) }}#}
+{#                    </pre>#}
+{#                    <pre>#}
+{#                        {{ dump(dungeon) }}#}
+{#                    </pre>#}
+
+                    <p>
+                       {{ dump(battle) }}<br/>
+                    </p>
+
+                    {% if dungeon.boss is defined %}
+                        <div class="d-flex">
+                            <div class="flex-grow-1 text-center alert alert-secondary m-2" role="alert">
+                                <h3>{{ dungeon.boss.name }} <small>({{ dungeon.boss.type }})</small></h3>
+                                {{ dungeon.boss.hp}}pv
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if dungeon.wave is defined %}
+                        <div class="d-flex flex-column-reverse">
+                            {% for index, wave in dungeon.wave %}
+                                <div class="d-flex flex-row">
+                                    {% for monster in wave %}
+                                        <div class="flex-grow-1 text-center alert alert-secondary m-2" role="alert">
+                                            <strong>{{ monster.name }} <small>({{ monster.type }})</small></strong><br/>
+                                            {{ monster.hp[index-1]}}pv
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                </div>
+            </article>
+        </div>
+    </div>
+
+{% endblock %}
