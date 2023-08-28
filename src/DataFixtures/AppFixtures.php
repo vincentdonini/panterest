@@ -27,6 +27,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $client = new Client();
+        $users = [];
 
         // Users
         $admin = new User();
@@ -36,6 +37,7 @@ class AppFixtures extends Fixture
             ->SetEmail('admin@woder.fr')
             ->setRoles(['ROLE_USER', 'ROLE_ADMIN'])
             ->setPlainPassword('password');
+        $users[] = $admin;
 
         $manager->persist($admin);
 
@@ -47,6 +49,7 @@ class AppFixtures extends Fixture
                 ->setEmail($this->faker->unique()->email())
                 ->setRoles(['ROLE_USER'])
                 ->setPlainPassword('password');
+            $users[] = $user;
 
             $manager->persist($user);
         }
@@ -70,7 +73,8 @@ class AppFixtures extends Fixture
                 $pin
                     ->setTitle($title)
                     ->setDescription($this->faker->text(300))
-                    ->setImageName($imageName);
+                    ->setImageName($imageName)
+                    ->setUser($users[mt_rand(0, count($users) - 1)]);
 
                 $manager->persist($pin);
             } catch (GuzzleException $e) {

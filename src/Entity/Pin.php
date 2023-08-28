@@ -59,6 +59,12 @@ class Pin
     private ?int $imageSize = null;
 
     /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="pins")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -133,6 +139,18 @@ class Pin
     public function getImageSize(): ?int
     {
         return $this->imageSize;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
     }
 
 }
