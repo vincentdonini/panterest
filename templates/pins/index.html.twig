@@ -36,6 +36,15 @@
                     </div>
                 {% endfor %}
             </div>
+            <div class="row">
+                <div class="col mt-5">
+                    <div class="d-flex justify-content-center">
+                        <div class="navigation">
+                            {{ knp_pagination_render(pins) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     {% endif %}
 {% endblock %}
