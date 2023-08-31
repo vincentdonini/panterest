@@ -41,7 +41,7 @@ class PinsController extends AbstractController
                 ]
             ),
             $request->query->getInt('page', 1),
-        10
+        Pin::NUM_ITEMS_PER_PAGES
         );
 
         return $this->render('pins/index.html.twig', [
