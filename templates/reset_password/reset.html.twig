@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}
+    PANTEREST - Reset your password
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <article>
+
+                <div class="text-center mb-5">
+                    <h1>
+                        Reset your password
+                    </h1>
+
+                    <p class="text-muted">
+                        Complete the following form to reset your password
+                    </p>
+                </div>
+
+                {{ form_start(resetForm) }}
+                    {{ form_row(resetForm.plainPassword) }}
+{#                    <button class="btn btn-primary">Reset password</button>#}
+
+                    <div class="d-grid mt-3">
+                        <button class="btn btn-lg btn-primary" type="submit" formnovalidate>
+                            Reset password
+                        </button>
+                    </div>
+                {{ form_end(resetForm) }}
+            </article>
+        </div>
+    </div>
+{% endblock %}
