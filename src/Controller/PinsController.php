@@ -90,7 +90,7 @@ class PinsController extends AbstractController
     }
 
     /**
-     * @Route("/pins/{id<[0-9]+>}/edit", name="app_pins_edit", methods={"GET", "PUT"})
+     * @Route("/pins/{id<[0-9]+>}/edit", name="app_pins_edit", methods={"GET", "PATCH"})
      * @IsGranted("ROLE_USER")
      * @IsGranted("PIN_MANAGE", subject="pin")
      */
@@ -100,7 +100,7 @@ class PinsController extends AbstractController
     ): Response
     {
         $form = $this->createForm(PinType::class, $pin, [
-            'method' => 'PUT'
+            'method' => 'PATCH'
         ]);
         $form->handleRequest($request);
 

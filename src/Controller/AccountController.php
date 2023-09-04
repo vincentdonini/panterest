@@ -36,7 +36,7 @@ class AccountController extends AbstractController
     }
 
     /**
-     * @Route("/edit", name="app_account_edit", methods={"GET", "PUT"})
+     * @Route("/edit", name="app_account_edit", methods={"GET", "PATCH"})
      * @IsGranted("IS_AUTHENTICATED_FULLY")
      */
     public function edit(
@@ -45,7 +45,7 @@ class AccountController extends AbstractController
     {
         $user = $this->getUser();
         $form = $this->createForm(UserFormType::class, $user, [
-            'method' => 'PUT'
+            'method' => 'PATCH'
         ]);
 
         $form->handleRequest($request);
@@ -64,7 +64,7 @@ class AccountController extends AbstractController
     }
 
     /**
-     * @Route("/change-password", name="app_account_change_password", methods={"GET", "POST"})
+     * @Route("/change-password", name="app_account_change_password", methods={"GET", "PATCH"})
      * @IsGranted("IS_AUTHENTICATED_FULLY")
      */
     public function changePassword(
@@ -75,7 +75,8 @@ class AccountController extends AbstractController
         $user = $this->getUser();
 
         $form = $this->createForm(ChangePasswordFormType::class, null, [
-            'is_current_password_required' => true
+            'is_current_password_required' => true,
+            'method' => 'PATCH'
         ]);
         $form->handleRequest($request);
 
