@@ -20,24 +20,26 @@
                     <p class="text-break">
                        {{ pin.description }}<br/>
                     </p>
-                    <hr/>
 
-                    <div class="row row-cols-sm-auto row-cols-1 g-2">
-                        <div class="col">
-                            <a href="{{ path('app_pins_edit', {'id': pin.id}) }}" class="btn btn-primary w-100 d-block">
-                                Edit pin
-                            </a>
-                        </div>
-                        <div class="col">
-                            <div>
-                                <form action="{{ path('app_pins_delete', {'id': pin.id}) }}" method="POST">
-                                    <input type="hidden" name="_method" value="DELETE" />
-                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('pin_deletion_' ~ pin.id) }}" />
-                                    <input type="submit" value="Delete"  class="btn btn-primary w-100 d-block"/>
-                                </form>
+                    {% if is_granted('PIN_MANAGE', pin) %}
+                        <hr/>
+                        <div class="row row-cols-sm-auto row-cols-1 g-2">
+                            <div class="col">
+                                <a href="{{ path('app_pins_edit', {'id': pin.id}) }}" class="btn btn-primary w-100 d-block">
+                                    Edit pin
+                                </a>
+                            </div>
+                            <div class="col">
+                                <div>
+                                    <form action="{{ path('app_pins_delete', {'id': pin.id}) }}" method="POST">
+                                        <input type="hidden" name="_method" value="DELETE" />
+                                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('pin_deletion_' ~ pin.id) }}" />
+                                        <input type="submit" value="Delete"  class="btn btn-primary w-100 d-block"/>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {% endif %}
                 </div>
             </article>
         </div>
