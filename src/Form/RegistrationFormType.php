@@ -24,6 +24,7 @@ class RegistrationFormType extends AbstractType
             ->add('lastName', TextType::class)
             ->add('email', EmailType::class)
             ->add('plainPassword', RepeatedType::class, [
+                'mapped' => false,
                 'type' => PasswordType::class,
                 'invalid_message' => 'The password fields must match.',
                 'options' => ['attr' => ['autocomplete' => 'new-password']],
@@ -40,11 +41,9 @@ class RegistrationFormType extends AbstractType
                 ],
                 'first_options'  => [
                     'label' => 'Password',
-                    'mapped' => false,
                 ],
                 'second_options' => [
                     'label' => 'Confirm Password',
-                    'mapped' => false,
                 ],
             ])
             ->add('agreeTerms', CheckboxType::class, [
