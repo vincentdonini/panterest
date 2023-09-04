@@ -22,7 +22,7 @@ class Pin
 
     use Timestampable;
 
-    public const NUM_ITEMS_PER_PAGES = 10;
+    public const NUM_ITEMS_PER_PAGES = 12;
 
     /**
      * @ORM\Id

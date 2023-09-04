@@ -25,11 +25,11 @@
                                 </a>
                             </div>
                             <div class="p-4">
-                                <h2>
-                                    <a href="{{ path('app_pins_details', {id: pin.id}) }}" class="text-decoration-none">
+                                <a href="{{ path('app_pins_details', {id: pin.id}) }}" class="text-decoration-none" title="{{ pin.title }}">
+                                    <h2 class="text-truncate">
                                         {{ pin.title }}
-                                    </a>
-                                </h2>
+                                    </h2>
+                                </a>
                                <small class="text-muted">Submitted <time datetime="{{ pin.createdAt|date('Y-m-d H:i:s') }}">{{ pin.createdAt|ago }}</time> by {{ pin.user.fullName }}</small>
                             </div>
                         </article>
