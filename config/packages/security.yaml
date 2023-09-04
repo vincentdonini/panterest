@@ -21,7 +21,6 @@ security:
             logout:
                 path: app_logout
                 csrf_token_generator: Symfony\Component\Security\Csrf\CsrfTokenManagerInterface
-                target: app_logout_message
             remember_me:
                 secret: '%kernel.secret%' # required
                 lifetime: 604800 # 1 week in seconds
