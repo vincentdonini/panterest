@@ -1,0 +1,37 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}
+    PANTEREST - Edit user account
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <article>
+
+                <div class="text-center mb-5">
+                    <h1>
+                        Update profile
+                    </h1>
+                </div>
+
+                {{ form_start(form) }}
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form_row(form.firstName) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form_row(form.lastName) }}
+                        </div>
+                    </div>
+                    {{ form_row(form.email) }}
+                    <div class="d-grid">
+                        <input class="btn btn-primary" type="submit" value="{{ sumitButtontext | default('Apply changes') }}" formnovalidate/>
+                    </div>
+                {{ form_end(form) }}
+
+            </article>
+        </div>
+    </div>
+{% endblock %}
+

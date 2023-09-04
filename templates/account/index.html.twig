@@ -1,0 +1,50 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}
+    PANTEREST - Profile
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <article>
+
+                <div class="text-center mb-5">
+                    <h1>
+                        Profile
+                    </h1>
+                    <img src="{{ app.user.gravatarUrl }}" class="img-fluid rounded-circle shadow my-5" alt="{{ app.user.fullName }}'s Avatar" />
+
+                    <div>
+                        <h2 class="mb-0">
+                            {{ app.user.fullName }}
+                        </h2>
+                        <p class="lead">
+                            {{ app.user.email }}
+                        </p>
+                        <p>
+                            <small>
+                                🕜 Account created at {{ app.user.createdAt | date('d/m/Y') }}
+                            </small>
+                        </p>
+                    </div>
+
+                    <div class="row row-cols-sm-auto row-cols-1 g-2 justify-content-center">
+                        <div class="col">
+                            <a href="{{ path('app_account_edit') }}" class="btn btn-primary w-100 d-block">
+                                Edit
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{ path('app_account_change_password') }}" class="btn btn-primary w-100 d-block">
+                                Change password
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+        </div>
+    </div>
+{% endblock %}
+
